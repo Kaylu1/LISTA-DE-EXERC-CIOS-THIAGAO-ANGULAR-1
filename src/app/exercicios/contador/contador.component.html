@@ -1,0 +1,15 @@
+<section class="cartao">
+  <h2>6. Contador completo</h2>
+  <p class="objetivo">Interpolation, Event Binding e Property Binding</p>
+
+  <p class="destaque">Quantidade: {{ quantidade }}</p>
+
+  <div class="linha">
+    <button
+      type="button"
+      class="botao-passo"
+      [disabled]="quantidade === 0"
+      (click)="diminuir()">−</button>
+    <button type="button" class="botao-passo" (click)="aumentar()">+</button>
+  </div>
+</section>

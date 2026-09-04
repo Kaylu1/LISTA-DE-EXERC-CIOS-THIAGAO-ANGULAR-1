@@ -1,0 +1,34 @@
+<section class="cartao">
+  <h2>Desafio final — Matrícula em curso</h2>
+  <p class="objetivo">Escolha livre dos bindings</p>
+
+  <div class="campo">
+    <label for="aluno">Nome do aluno</label>
+    <input id="aluno" type="text" [(ngModel)]="aluno">
+  </div>
+
+  <div class="linha">
+    <span>Disciplinas: {{ disciplinas }}</span>
+    <button
+      type="button"
+      class="botao-passo"
+      [disabled]="disciplinas === 1"
+      (click)="diminuir()">−</button>
+    <button type="button" class="botao-passo" (click)="aumentar()">+</button>
+  </div>
+
+  <div class="resultado">
+    <p>Aluno: {{ aluno || '—' }}</p>
+    <p>Disciplinas: {{ disciplinas }}</p>
+  </div>
+
+  <div class="espaco-topo">
+    <button
+      type="button"
+      class="botao"
+      [disabled]="!nomePreenchido"
+      (click)="realizarMatricula()">Realizar Matrícula</button>
+  </div>
+
+  <p class="aviso" *ngIf="comprovante">{{ comprovante }}</p>
+</section>

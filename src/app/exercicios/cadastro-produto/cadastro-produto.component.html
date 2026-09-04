@@ -1,0 +1,26 @@
+<section class="cartao">
+  <h2>8. Cadastro de produto</h2>
+  <p class="objetivo">Two-Way Binding e Interpolation</p>
+
+  <div class="campo">
+    <label for="produto">Produto</label>
+    <input id="produto" type="text" [(ngModel)]="produto">
+  </div>
+
+  <div class="campo">
+    <label for="preco">Preço</label>
+    <input id="preco" type="number" min="0" step="0.01" [(ngModel)]="preco">
+  </div>
+
+  <div class="campo">
+    <label for="quantidade">Quantidade</label>
+    <input id="quantidade" type="number" min="0" [(ngModel)]="quantidade">
+  </div>
+
+  <div class="resultado">
+    <p>Produto: {{ produto }}</p>
+    <p>Preço: {{ preco | currency }}</p>
+    <p>Quantidade: {{ quantidade }}</p>
+    <p class="destaque">Total: {{ total | currency }}</p>
+  </div>
+</section>

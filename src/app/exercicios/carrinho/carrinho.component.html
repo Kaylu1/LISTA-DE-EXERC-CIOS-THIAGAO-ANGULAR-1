@@ -1,0 +1,28 @@
+<section class="cartao">
+  <h2>11. Carrinho de compras</h2>
+  <p class="objetivo">Todos os bindings em uma funcionalidade de compra</p>
+
+  <div class="resultado">
+    <p class="destaque">{{ produto }}</p>
+    <p>Preço: {{ preco | currency }}</p>
+    <p>Total: {{ total | currency }}</p>
+  </div>
+
+  <div class="linha espaco-topo">
+    <span>Quantidade: {{ quantidade }}</span>
+    <button
+      type="button"
+      class="botao-passo"
+      [disabled]="quantidade === 1"
+      (click)="diminuir()">−</button>
+    <button type="button" class="botao-passo" (click)="aumentar()">+</button>
+  </div>
+
+  <div class="espaco-topo">
+    <button type="button" class="botao" (click)="adicionarAoCarrinho()">
+      Adicionar ao carrinho
+    </button>
+  </div>
+
+  <p class="aviso" *ngIf="mensagem">{{ mensagem }}</p>
+</section>

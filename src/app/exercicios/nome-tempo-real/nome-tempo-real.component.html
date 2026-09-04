@@ -1,0 +1,14 @@
+<section class="cartao">
+  <h2>7. Nome em tempo real</h2>
+  <p class="objetivo">Two-Way Binding com [(ngModel)]</p>
+
+  <div class="campo">
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" placeholder="Digite seu nome" [(ngModel)]="nome">
+  </div>
+
+  <div class="resultado">
+    <p class="destaque" *ngIf="nome">Olá, {{ nome }}!</p>
+    <p *ngIf="!nome">Digite um nome para ver a saudação.</p>
+  </div>
+</section>

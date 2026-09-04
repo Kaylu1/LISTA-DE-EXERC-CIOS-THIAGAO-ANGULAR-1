@@ -1,0 +1,25 @@
+<section class="cartao">
+  <h2>9. Controle de estoque</h2>
+  <p class="objetivo">Interpolation, Event Binding, Property Binding e Two-Way Binding</p>
+
+  <div class="campo">
+    <label for="nomeProduto">Nome do produto</label>
+    <input id="nomeProduto" type="text" [(ngModel)]="nomeProduto">
+  </div>
+
+  <div class="resultado">
+    <p class="destaque">{{ nomeProduto }}</p>
+    <p>Em estoque: {{ estoque }} unidade(s)</p>
+  </div>
+
+  <div class="linha espaco-topo">
+    <button
+      type="button"
+      class="botao-passo"
+      [disabled]="estoque === 0"
+      (click)="diminuir()">−</button>
+    <button type="button" class="botao-passo" (click)="aumentar()">+</button>
+  </div>
+
+  <p class="alerta" *ngIf="estoque === 0">Produto esgotado.</p>
+</section>

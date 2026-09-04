@@ -1,0 +1,17 @@
+<section class="cartao">
+  <h2>4. Botão habilitado ou desabilitado</h2>
+  <p class="objetivo">Property Binding em [disabled]</p>
+
+  <label class="linha">
+    <input type="checkbox" [(ngModel)]="formularioValido">
+    Formulário válido
+  </label>
+
+  <div class="linha espaco-topo">
+    <button type="button" class="botao" [disabled]="!formularioValido">Salvar</button>
+  </div>
+
+  <div class="resultado">
+    <p>formularioValido = {{ formularioValido }}</p>
+  </div>
+</section>

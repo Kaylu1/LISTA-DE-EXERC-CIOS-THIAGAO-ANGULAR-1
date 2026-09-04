@@ -1,0 +1,22 @@
+<section class="cartao">
+  <h2>10. Login simulado</h2>
+  <p class="objetivo">Os quatro tipos de Data Binding</p>
+
+  <div class="campo">
+    <label for="usuario">Usuário</label>
+    <input id="usuario" type="text" [(ngModel)]="usuario">
+  </div>
+
+  <div class="campo">
+    <label for="senha">Senha</label>
+    <input id="senha" type="password" [(ngModel)]="senha">
+  </div>
+
+  <button
+    type="button"
+    class="botao"
+    [disabled]="!camposPreenchidos"
+    (click)="entrar()">Entrar</button>
+
+  <p class="aviso" *ngIf="mensagem">{{ mensagem }}</p>
+</section>
