@@ -1,0 +1,36 @@
+<header class="topo">
+  <h1>Data Binding no Angular</h1>
+  <p>Lista de exercícios — Prof. Thiago Paiva</p>
+</header>
+
+<div class="conteudo">
+  <nav class="menu">
+    <button
+      *ngFor="let exercicio of exercicios"
+      type="button"
+      class="item-menu"
+      [class.ativo]="exercicio.numero === exercicioAtual"
+      (click)="abrir(exercicio.numero)">
+      <span class="numero">{{ exercicio.numero }}</span>
+      <span class="texto">
+        <strong>{{ exercicio.titulo }}</strong>
+        <small>{{ exercicio.nivel }}</small>
+      </span>
+    </button>
+  </nav>
+
+  <main class="palco">
+    <app-apresentacao *ngIf="exercicioAtual === 1"></app-apresentacao>
+    <app-calculo *ngIf="exercicioAtual === 2"></app-calculo>
+    <app-imagem-dinamica *ngIf="exercicioAtual === 3"></app-imagem-dinamica>
+    <app-botao-salvar *ngIf="exercicioAtual === 4"></app-botao-salvar>
+    <app-curtidas *ngIf="exercicioAtual === 5"></app-curtidas>
+    <app-contador *ngIf="exercicioAtual === 6"></app-contador>
+    <app-nome-tempo-real *ngIf="exercicioAtual === 7"></app-nome-tempo-real>
+    <app-cadastro-produto *ngIf="exercicioAtual === 8"></app-cadastro-produto>
+    <app-estoque *ngIf="exercicioAtual === 9"></app-estoque>
+    <app-login *ngIf="exercicioAtual === 10"></app-login>
+    <app-carrinho *ngIf="exercicioAtual === 11"></app-carrinho>
+    <app-matricula *ngIf="exercicioAtual === 12"></app-matricula>
+  </main>
+</div>
