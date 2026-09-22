@@ -2,6 +2,9 @@
 
 Resolução da lista de exercícios de Data Binding do professor Thiago Paiva.
 
+> **Outra lista neste repositório:** [Diretivas no Angular](atividade-02-diretivas/) —
+> 14 exercícios e o desafio final, em `atividade-02-diretivas/`.
+
 ## Como executar
 
 ```bash
