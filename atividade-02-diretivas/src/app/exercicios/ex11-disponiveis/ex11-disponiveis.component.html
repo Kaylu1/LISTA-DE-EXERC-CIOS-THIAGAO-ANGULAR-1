@@ -1,0 +1,38 @@
+<section class="enunciado">
+  <h2>Exercício 11 · Exibir somente produtos disponíveis</h2>
+  <p>A propriedade <code>somenteDisponiveis</code> começa com o valor <code>false</code>.</p>
+  <ul>
+    <li>O usuário escolhe entre exibir todos os produtos ou somente os que têm estoque.</li>
+    <li>Nenhum segundo array foi criado: a decisão acontece na construção da interface.</li>
+    <li>O <code>ng-container</code> combina a repetição com a condição sem gerar elementos extras.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="alternarFiltro()">
+      {{ somenteDisponiveis ? 'Exibir todos os produtos' : 'Exibir somente os disponíveis' }}
+    </button>
+  </div>
+
+  <p class="contador">
+    Filtro atual:
+    <strong>{{ somenteDisponiveis ? 'somente produtos com estoque' : 'todos os produtos' }}</strong>
+  </p>
+
+  <ul class="lista">
+    <ng-container *ngFor="let produto of produtos">
+      <li *ngIf="deveExibir(produto)">
+        <strong>{{ produto.nome }}</strong>
+        <span class="etiqueta" [ngClass]="produto.quantidade > 0 ? 'sucesso' : 'perigo'">
+          {{ produto.quantidade > 0 ? produto.quantidade + ' em estoque' : 'sem estoque' }}
+        </span>
+        <p class="contador">{{ produto.preco | currency: 'BRL' }}</p>
+      </li>
+    </ng-container>
+  </ul>
+
+  <p class="vazio" *ngIf="somenteDisponiveis && !existeProdutoComEstoque">
+    Nenhum produto disponível no momento
+  </p>
+</section>

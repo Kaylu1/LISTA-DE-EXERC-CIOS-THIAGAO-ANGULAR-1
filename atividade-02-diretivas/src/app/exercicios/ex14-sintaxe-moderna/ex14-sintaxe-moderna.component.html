@@ -1,0 +1,93 @@
+<section class="enunciado">
+  <h2>Exercício 14 · Conversão para a sintaxe moderna</h2>
+  <p>Três exercícios anteriores reescritos com o controle de fluxo nativo do Angular.</p>
+  <ul>
+    <li>Exercício 2 convertido para <code>&#64;if</code> e <code>&#64;else</code>.</li>
+    <li>Exercício 6 convertido para <code>&#64;for</code> com <code>&#64;empty</code>.</li>
+    <li>Exercício 9 convertido para <code>&#64;for</code> com <code>track produto.id</code>.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <h3>Exercício 2 convertido · &#64;if e &#64;else</h3>
+
+  @if (usuarioLogado) {
+    <p class="resultado">Usuário autenticado</p>
+  } @else {
+    <p class="resultado">Acesso não autorizado</p>
+  }
+
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="alternarSessao()">
+      @if (usuarioLogado) {
+        Sair
+      } @else {
+        Entrar
+      }
+    </button>
+  </div>
+</section>
+
+<section class="cartao">
+  <h3>Exercício 6 convertido · &#64;for e &#64;empty</h3>
+
+  <div class="grupo-botoes">
+    <button type="button" (click)="removerUltimo()" [disabled]="nomes.length === 0">
+      Remover o último nome
+    </button>
+    <button type="button" class="perigo" (click)="limparLista()" [disabled]="nomes.length === 0">
+      Limpar toda a lista
+    </button>
+    <button type="button" class="primario" (click)="restaurarLista()">Restaurar a lista inicial</button>
+  </div>
+
+  <p class="contador">Quantidade total de nomes: <strong>{{ nomes.length }}</strong></p>
+
+  <ul class="lista">
+    @for (nome of nomes; track nome) {
+      <li>{{ $index + 1 }} · {{ nome }}</li>
+    } @empty {
+      <li class="vazio">Nenhum nome cadastrado</li>
+    }
+  </ul>
+</section>
+
+<section class="cartao">
+  <h3>Exercício 9 convertido · &#64;for com track produto.id</h3>
+
+  <ul class="lista">
+    @for (produto of produtos; track produto.id) {
+      <li [ngClass]="definirClasseEstoque(produto)">
+        <strong>{{ $index + 1 }}. {{ produto.nome }}</strong>
+        <span class="situacao">{{ classificarEstoque(produto) }}</span>
+        <p class="contador">
+          {{ produto.preco | currency: 'BRL' }} · {{ produto.quantidade }} unidade(s)
+        </p>
+      </li>
+    } @empty {
+      <li class="vazio">Nenhum produto cadastrado</li>
+    }
+  </ul>
+</section>
+
+<section class="cartao">
+  <h3>Duas diferenças percebidas entre as sintaxes</h3>
+
+  <ol class="diferencas">
+    <li>
+      <strong>O controle de fluxo passou a fazer parte do próprio template.</strong>
+      Na sintaxe tradicional, <code>*ngIf</code> e <code>*ngFor</code> são diretivas que precisam do
+      <code>CommonModule</code> importado, e o caso contrário do <code>else</code> exige um
+      <code>ng-template</code> declarado à parte. Com <code>&#64;if</code> e <code>&#64;else</code> nada
+      disso é necessário: os blocos são compilados direto no template e a leitura fica muito parecida
+      com um <code>if</code> comum de JavaScript.
+    </li>
+    <li>
+      <strong>O <code>&#64;for</code> resolve sozinho o que antes precisava de código extra.</strong>
+      O <code>track</code> é obrigatório, o que evita que o Angular recrie os elementos da lista a cada
+      atualização, e o bloco <code>&#64;empty</code> já trata a lista vazia. Na sintaxe antiga era preciso
+      combinar <code>*ngFor</code> com um <code>*ngIf</code> adicional, muitas vezes apoiado em um
+      <code>ng-container</code>, apenas para exibir a mensagem de lista vazia.
+    </li>
+  </ol>
+</section>

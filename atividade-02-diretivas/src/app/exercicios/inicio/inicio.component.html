@@ -1,0 +1,54 @@
+<section class="enunciado">
+  <h2>Lista de Exercícios sobre Diretivas no Angular</h2>
+  <p>
+    Atividade prática em sala de aula. Cada exercício da lista foi implementado em um componente
+    próprio, acessível pelo menu lateral.
+  </p>
+</section>
+
+<section class="cartao">
+  <h3>Identificação</h3>
+  <dl class="identificacao">
+    <dt>Aluno</dt>
+    <dd>Caio Eduardo Sapata Bruno</dd>
+    <dt>R.A.</dt>
+    <dd>270667</dd>
+    <dt>Turma</dt>
+    <dd>3 A</dd>
+  </dl>
+</section>
+
+<section class="cartao">
+  <h3>Objetivo</h3>
+  <p>
+    Praticar o uso gradual de diretivas e recursos de template do Angular, partindo de condições
+    simples até a construção de uma tela completa de gerenciamento.
+  </p>
+
+  <div class="etapas">
+    <div class="etapa" *ngFor="let etapa of etapas">
+      <strong>{{ etapa.nome }}</strong>
+      <span>{{ etapa.descricao }}</span>
+    </div>
+  </div>
+</section>
+
+<section class="cartao">
+  <h3>Como o projeto está organizado</h3>
+  <ul>
+    <li>
+      Os componentes são configurados com módulos: nenhum deles é <code>standalone</code>. Todos são
+      declarados em <code>ExerciciosModule</code>.
+    </li>
+    <li>
+      A lógica fica no arquivo TypeScript de cada componente e o template cuida apenas da
+      apresentação dos dados.
+    </li>
+    <li>
+      Os exercícios 1 a 13 usam a sintaxe tradicional (<code>*ngIf</code> e <code>*ngFor</code>). O
+      exercício 14 e o desafio final usam a sintaxe moderna (<code>&#64;if</code> e
+      <code>&#64;for</code>).
+    </li>
+    <li>Os dados são mantidos em arrays no próprio componente, sem API e sem banco de dados.</li>
+  </ul>
+</section>

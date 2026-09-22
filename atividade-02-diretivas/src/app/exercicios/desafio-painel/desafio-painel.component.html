@@ -1,0 +1,101 @@
+<section class="enunciado">
+  <h2>Desafio final · Painel de projetos</h2>
+  <p>
+    Acompanhamento dos projetos integradores. Versão final desenvolvida com
+    <code>&#64;if</code>, <code>&#64;for</code>, <code>&#64;empty</code> e
+    <code>track projeto.id</code>.
+  </p>
+</section>
+
+<section class="cartao">
+  <div class="painel-numeros">
+    <div class="numero">
+      <span class="valor">{{ totalProjetos }}</span>
+      <span class="rotulo">Projetos cadastrados</span>
+    </div>
+    <div class="numero">
+      <span class="valor">{{ totalConcluidos }}</span>
+      <span class="rotulo">Projetos concluídos</span>
+    </div>
+    <div class="numero">
+      <span class="valor">{{ totalEntregues }}</span>
+      <span class="rotulo">Projetos entregues</span>
+    </div>
+  </div>
+
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="alternarExibicaoConcluidos()">
+      @if (mostrarConcluidos) {
+        Ocultar projetos concluídos
+      } @else {
+        Mostrar projetos concluídos
+      }
+    </button>
+    <button type="button" class="perigo" (click)="limparPainel()" [disabled]="totalProjetos === 0">
+      Limpar o painel
+    </button>
+    <button type="button" (click)="restaurarPainel()">Restaurar os projetos</button>
+  </div>
+</section>
+
+<section class="cartao">
+  <ul class="lista">
+    @for (projeto of projetosVisiveis; track projeto.id) {
+      <li
+        [ngClass]="[
+          definirClasseStatus(projeto),
+          temNotaDestaque(projeto) ? 'nota-destaque' : '',
+          temNotaAbaixoDaMedia(projeto) ? 'nota-abaixo' : ''
+        ]"
+      >
+        <div class="cabecalho-projeto">
+          <div>
+            <strong class="titulo-projeto">{{ $index + 1 }}. {{ projeto.titulo }}</strong>
+            <p class="contador">Equipe: {{ projeto.equipe }}</p>
+          </div>
+
+          <span class="etiqueta-status">{{ descreverStatus(projeto.status) }}</span>
+        </div>
+
+        <div class="informacoes">
+          @if (projeto.nota !== null) {
+            <span class="nota">Nota {{ projeto.nota | number: '1.1-1' }}</span>
+          } @else {
+            <span class="nota sem-nota">Nota ainda não definida</span>
+          }
+
+          @if (projeto.entregue) {
+            <span class="etiqueta sucesso">Projeto entregue</span>
+          }
+
+          @if (temNotaDestaque(projeto)) {
+            <span class="etiqueta sucesso">Destaque da turma</span>
+          }
+
+          @if (temNotaAbaixoDaMedia(projeto)) {
+            <span class="etiqueta perigo">Nota abaixo da média</span>
+          }
+        </div>
+
+        <div class="troca-status">
+          <label [attr.for]="'status-' + projeto.id">Alterar status</label>
+          <select
+            [id]="'status-' + projeto.id"
+            [ngModel]="projeto.status"
+            (ngModelChange)="alterarStatus(projeto, $event)"
+          >
+            @for (status of statusPermitidos; track status) {
+              <option [value]="status">{{ descreverStatus(status) }}</option>
+            }
+          </select>
+        </div>
+      </li>
+    } @empty {
+      @if (totalProjetos === 0) {
+        <li class="vazio">Nenhum projeto cadastrado</li>
+      } @else {
+        <li class="vazio">Nenhum projeto para exibir com o filtro atual</li>
+      }
+    }
+  </ul>
+</section>

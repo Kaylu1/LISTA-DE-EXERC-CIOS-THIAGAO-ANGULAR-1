@@ -1,0 +1,29 @@
+<section class="enunciado">
+  <h2>Exercício 6 · Tratamento de lista vazia</h2>
+  <p>Reutiliza a lista de nomes do exercício anterior e trata o caso da lista sem registros.</p>
+  <ul>
+    <li>Botões para remover o último nome, limpar tudo e restaurar a lista inicial.</li>
+    <li>Mensagem "Nenhum nome cadastrado" quando a lista estiver vazia.</li>
+    <li>Quantidade total de nomes sempre visível.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <div class="grupo-botoes">
+    <button type="button" (click)="removerUltimo()" [disabled]="nomes.length === 0">
+      Remover o último nome
+    </button>
+    <button type="button" class="perigo" (click)="limparLista()" [disabled]="nomes.length === 0">
+      Limpar toda a lista
+    </button>
+    <button type="button" class="primario" (click)="restaurarLista()">Restaurar a lista inicial</button>
+  </div>
+
+  <p class="contador">Quantidade total de nomes: <strong>{{ nomes.length }}</strong></p>
+
+  <ul class="lista" *ngIf="nomes.length > 0">
+    <li *ngFor="let nome of nomes; let i = index">{{ i + 1 }} · {{ nome }}</li>
+  </ul>
+
+  <p class="vazio" *ngIf="nomes.length === 0">Nenhum nome cadastrado</p>
+</section>

@@ -1,0 +1,61 @@
+<section class="enunciado">
+  <h2>Exercício 13 · Lista de tarefas</h2>
+  <p>Interface <code>Tarefa</code> com seis registros de prioridade baixa, média ou alta.</p>
+  <ul>
+    <li>Cada tarefa exibe o responsável, a prioridade e a situação atual.</li>
+    <li>As tarefas concluídas recebem destaque visual.</li>
+    <li>O painel mostra o total de tarefas, quantas estão concluídas e quantas estão pendentes.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <div class="painel-numeros">
+    <div class="numero">
+      <span class="valor">{{ totalTarefas }}</span>
+      <span class="rotulo">Total de tarefas</span>
+    </div>
+    <div class="numero">
+      <span class="valor">{{ totalConcluidas }}</span>
+      <span class="rotulo">Concluídas</span>
+    </div>
+    <div class="numero">
+      <span class="valor">{{ totalPendentes }}</span>
+      <span class="rotulo">Pendentes</span>
+    </div>
+  </div>
+
+  <div class="grupo-botoes">
+    <button type="button" class="perigo" (click)="limparTarefas()" [disabled]="totalTarefas === 0">
+      Limpar a lista
+    </button>
+    <button type="button" class="primario" (click)="restaurarTarefas()">Restaurar as tarefas</button>
+  </div>
+</section>
+
+<section class="cartao">
+  <ul class="lista" *ngIf="tarefas.length > 0">
+    <li
+      *ngFor="let tarefa of tarefas; let i = index"
+      [ngClass]="[definirClassePrioridade(tarefa), tarefa.concluida ? 'tarefa-concluida' : '']"
+    >
+      <div class="linha-tarefa">
+        <div>
+          <strong class="titulo-tarefa">{{ i + 1 }}. {{ tarefa.titulo }}</strong>
+          <p class="contador">Responsável: {{ tarefa.responsavel }}</p>
+
+          <span class="etiqueta">Prioridade {{ descreverPrioridade(tarefa) }}</span>
+          <span class="etiqueta sucesso" *ngIf="tarefa.concluida; else pendente">Concluída</span>
+          <ng-template #pendente>
+            <span class="etiqueta alerta">Pendente</span>
+          </ng-template>
+        </div>
+
+        <button type="button" (click)="alternarSituacao(tarefa)">
+          {{ tarefa.concluida ? 'Marcar como pendente' : 'Marcar como concluída' }}
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <p class="vazio" *ngIf="tarefas.length === 0">Nenhuma tarefa cadastrada</p>
+</section>

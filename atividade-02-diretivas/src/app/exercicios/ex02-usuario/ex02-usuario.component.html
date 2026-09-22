@@ -1,0 +1,25 @@
+<section class="enunciado">
+  <h2>Exercício 2 · Situação do usuário</h2>
+  <p>Propriedade booleana <code>usuarioLogado</code> com mensagem alternativa via <code>else</code>.</p>
+  <ul>
+    <li>"Usuário autenticado" quando a propriedade for verdadeira.</li>
+    <li>"Acesso não autorizado" quando for falsa.</li>
+    <li>O mesmo botão alterna entre entrar e sair, mudando o próprio texto.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <p class="resultado" *ngIf="usuarioLogado; else acessoNegado">Usuário autenticado</p>
+
+  <ng-template #acessoNegado>
+    <p class="resultado">Acesso não autorizado</p>
+  </ng-template>
+
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="alternarSessao()">{{ textoBotao }}</button>
+  </div>
+
+  <p class="contador">
+    Valor atual de usuarioLogado: <strong>{{ usuarioLogado }}</strong>
+  </p>
+</section>

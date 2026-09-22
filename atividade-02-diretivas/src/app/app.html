@@ -1,0 +1,39 @@
+<div class="aplicacao">
+  <aside class="menu-lateral">
+    <h1>Diretivas no Angular</h1>
+    <p class="subtitulo">Atividade prática em sala de aula</p>
+
+    <nav>
+      <a routerLink="/" routerLinkActive="ativo" [routerLinkActiveOptions]="{ exact: true }">Início</a>
+
+      <p class="secao">Etapa 1 · Condições e eventos</p>
+      <a routerLink="/exercicio-1" routerLinkActive="ativo">1 · Exibição de mensagem</a>
+      <a routerLink="/exercicio-2" routerLinkActive="ativo">2 · Situação do usuário</a>
+      <a routerLink="/exercicio-3" routerLinkActive="ativo">3 · Verificação de idade</a>
+      <a routerLink="/exercicio-4" routerLinkActive="ativo">4 · Situação do estoque</a>
+
+      <p class="secao">Etapa 2 · Repetições e listas</p>
+      <a routerLink="/exercicio-5" routerLinkActive="ativo">5 · Lista de nomes</a>
+      <a routerLink="/exercicio-6" routerLinkActive="ativo">6 · Tratamento de lista vazia</a>
+      <a routerLink="/exercicio-7" routerLinkActive="ativo">7 · Cores alternadas</a>
+
+      <p class="secao">Etapa 3 · Objetos e estilos</p>
+      <a routerLink="/exercicio-8" routerLinkActive="ativo">8 · Lista de produtos</a>
+      <a routerLink="/exercicio-9" routerLinkActive="ativo">9 · Classificação dos produtos</a>
+      <a routerLink="/exercicio-10" routerLinkActive="ativo">10 · Promoção e estilo dinâmico</a>
+      <a routerLink="/exercicio-11" routerLinkActive="ativo">11 · Somente disponíveis</a>
+
+      <p class="secao">Etapa 4 · Interação e integração</p>
+      <a routerLink="/exercicio-12" routerLinkActive="ativo">12 · Cadastro simplificado</a>
+      <a routerLink="/exercicio-13" routerLinkActive="ativo">13 · Lista de tarefas</a>
+      <a routerLink="/exercicio-14" routerLinkActive="ativo">14 · Sintaxe moderna</a>
+
+      <p class="secao">Desafio final</p>
+      <a routerLink="/desafio-final" routerLinkActive="ativo">Painel de projetos</a>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <router-outlet></router-outlet>
+  </main>
+</div>

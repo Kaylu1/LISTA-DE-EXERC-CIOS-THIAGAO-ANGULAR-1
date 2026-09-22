@@ -1,0 +1,34 @@
+<section class="enunciado">
+  <h2>Exercício 7 · Cores alternadas</h2>
+  <p>Lista de seis disciplinas formatada inteiramente com <code>ngClass</code>.</p>
+  <ul>
+    <li>Uma cor de fundo nas posições pares e outra nas ímpares.</li>
+    <li>A primeira disciplina recebe destaque.</li>
+    <li>A última disciplina recebe uma borda diferente.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <ul class="lista">
+    <li
+      *ngFor="
+        let disciplina of disciplinas;
+        let i = index;
+        let par = even;
+        let impar = odd;
+        let primeira = first;
+        let ultima = last
+      "
+      [ngClass]="{
+        'linha-par': par,
+        'linha-impar': impar,
+        'primeira-disciplina': primeira,
+        'ultima-disciplina': ultima
+      }"
+    >
+      <strong>{{ i + 1 }}.</strong> {{ disciplina }}
+      <span class="etiqueta info" *ngIf="primeira">Destaque</span>
+      <span class="etiqueta" *ngIf="ultima">Última</span>
+    </li>
+  </ul>
+</section>

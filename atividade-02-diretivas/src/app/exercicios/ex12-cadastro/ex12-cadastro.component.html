@@ -1,0 +1,60 @@
+<section class="enunciado">
+  <h2>Exercício 12 · Cadastro simplificado</h2>
+  <p>Campos para o nome e a quantidade do produto com validação antes da inclusão.</p>
+  <ul>
+    <li>O nome precisa estar preenchido e a quantidade precisa ser igual ou maior que zero.</li>
+    <li>Os campos são limpos após o cadastro e a listagem é atualizada automaticamente.</li>
+    <li>Uma mensagem aparece quando o cadastro não pode ser realizado.</li>
+    <li>Cada produto da lista possui um botão Excluir.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <div class="formulario">
+    <div class="campo">
+      <label for="campo-nome">Nome do produto</label>
+      <input
+        id="campo-nome"
+        type="text"
+        placeholder="Ex.: Cadeira gamer"
+        [(ngModel)]="nomeInformado"
+        (keyup.enter)="cadastrarProduto()"
+      />
+    </div>
+
+    <div class="campo campo-estreito">
+      <label for="campo-quantidade">Quantidade</label>
+      <input
+        id="campo-quantidade"
+        type="number"
+        min="0"
+        placeholder="0"
+        [(ngModel)]="quantidadeInformada"
+        (keyup.enter)="cadastrarProduto()"
+      />
+    </div>
+
+    <button type="button" class="primario" (click)="cadastrarProduto()">Cadastrar</button>
+  </div>
+
+  <p class="aviso" *ngIf="mensagemErro">{{ mensagemErro }}</p>
+</section>
+
+<section class="cartao">
+  <h3>Produtos cadastrados</h3>
+  <p class="contador">Total: <strong>{{ produtos.length }}</strong></p>
+
+  <ul class="lista" *ngIf="produtos.length > 0">
+    <li *ngFor="let produto of produtos; let i = index">
+      <div class="linha-produto">
+        <span>
+          <strong>{{ i + 1 }}. {{ produto.nome }}</strong>
+          <span class="etiqueta">{{ produto.quantidade }} unidade(s)</span>
+        </span>
+        <button type="button" class="perigo" (click)="excluirProduto(produto)">Excluir</button>
+      </div>
+    </li>
+  </ul>
+
+  <p class="vazio" *ngIf="produtos.length === 0">Nenhum produto cadastrado</p>
+</section>

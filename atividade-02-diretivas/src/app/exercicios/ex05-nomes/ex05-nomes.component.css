@@ -1,0 +1,23 @@
+.item-nome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.posicao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: var(--cor-texto-suave);
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.nome {
+  font-weight: 600;
+}

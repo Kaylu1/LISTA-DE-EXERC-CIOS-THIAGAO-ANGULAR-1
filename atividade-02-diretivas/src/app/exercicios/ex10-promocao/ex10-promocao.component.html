@@ -1,0 +1,33 @@
+<section class="enunciado">
+  <h2>Exercício 10 · Promoção e estilo dinâmico</h2>
+  <p>A propriedade booleana <code>promocao</code> foi acrescentada ao produto.</p>
+  <ul>
+    <li>"Produto em promoção" aparece somente quando a propriedade for verdadeira.</li>
+    <li>Produtos em promoção ficam com o texto em negrito.</li>
+    <li>O preço promocional recebe outra cor por meio de <code>ngStyle</code>.</li>
+    <li>Cada produto tem um botão para ativar ou desativar a promoção.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <ul class="lista">
+    <li *ngFor="let produto of produtos" [ngClass]="{ 'em-promocao': produto.promocao }">
+      <div class="linha-produto">
+        <div>
+          <strong class="nome-produto">{{ produto.nome }}</strong>
+          <span class="etiqueta perigo" *ngIf="produto.promocao">Produto em promoção</span>
+
+          <p class="preco" [ngStyle]="estiloDoPreco(produto)">
+            {{ produto.preco | currency: 'BRL' }}
+          </p>
+
+          <p class="contador">{{ produto.quantidade }} unidade(s) em estoque</p>
+        </div>
+
+        <button type="button" (click)="alternarPromocao(produto)">
+          {{ produto.promocao ? 'Desativar promoção' : 'Ativar promoção' }}
+        </button>
+      </div>
+    </li>
+  </ul>
+</section>

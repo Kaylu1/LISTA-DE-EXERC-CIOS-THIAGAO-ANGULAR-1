@@ -1,0 +1,16 @@
+.linha-par {
+  background: #eef2ff;
+}
+
+.linha-impar {
+  background: #f8fafc;
+}
+
+.primeira-disciplina {
+  font-weight: 700;
+  border-left: 5px solid var(--cor-primaria);
+}
+
+.ultima-disciplina {
+  border: 2px dashed var(--cor-alerta);
+}

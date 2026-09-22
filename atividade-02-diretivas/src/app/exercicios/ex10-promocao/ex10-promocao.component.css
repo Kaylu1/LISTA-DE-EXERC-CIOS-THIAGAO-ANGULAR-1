@@ -1,0 +1,26 @@
+.linha-produto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preco {
+  margin: 4px 0;
+}
+
+.em-promocao {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+/* Requisito 2: produtos em promocao com o texto em negrito. */
+.em-promocao .nome-produto {
+  font-weight: 800;
+}
+
+.em-promocao .contador {
+  font-weight: 700;
+  color: #9a3412;
+}

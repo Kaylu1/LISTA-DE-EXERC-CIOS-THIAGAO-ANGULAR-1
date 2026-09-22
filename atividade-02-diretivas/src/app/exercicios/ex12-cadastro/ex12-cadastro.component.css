@@ -1,0 +1,22 @@
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.campo {
+  flex: 1 1 220px;
+}
+
+.campo-estreito {
+  flex: 0 1 140px;
+}
+
+.linha-produto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}

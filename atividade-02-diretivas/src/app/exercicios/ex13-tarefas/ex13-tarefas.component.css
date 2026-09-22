@@ -1,0 +1,55 @@
+.painel-numeros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.numero {
+  flex: 1 1 140px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.numero .valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.numero .rotulo {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.linha-tarefa {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prioridade-alta {
+  border-left: 5px solid var(--cor-perigo);
+}
+
+.prioridade-media {
+  border-left: 5px solid var(--cor-alerta);
+}
+
+.prioridade-baixa {
+  border-left: 5px solid var(--cor-sucesso);
+}
+
+.tarefa-concluida {
+  background: var(--cor-sucesso-fundo);
+}
+
+.tarefa-concluida .titulo-tarefa {
+  text-decoration: line-through;
+  color: var(--cor-texto-suave);
+}

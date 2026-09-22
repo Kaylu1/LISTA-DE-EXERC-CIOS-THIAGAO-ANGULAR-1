@@ -1,0 +1,38 @@
+<section class="enunciado">
+  <h2>Exercício 8 · Lista de produtos</h2>
+  <p>Interface <code>Produto</code> com os campos id, nome, preço e quantidade.</p>
+  <ul>
+    <li>Exibe a posição, o nome, o preço e a quantidade disponível.</li>
+    <li>O preço é formatado em reais com o pipe <code>currency</code>.</li>
+    <li>O valor total em estoque é calculado multiplicando preço por quantidade.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <div class="rolagem-horizontal">
+    <table>
+      <thead>
+        <tr>
+          <th>Posição</th>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Total em estoque</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ produto.nome }}</td>
+          <td>{{ produto.preco | currency: 'BRL' }}</td>
+          <td>{{ produto.quantidade }}</td>
+          <td>{{ calcularTotalEmEstoque(produto) | currency: 'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="contador">
+    Valor total de todos os produtos: <strong>{{ totalGeral | currency: 'BRL' }}</strong>
+  </p>
+</section>

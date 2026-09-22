@@ -1,0 +1,54 @@
+.etapas {
+  display: grid;
+  gap: 12px;
+}
+
+.etapa {
+  border: 1px solid var(--cor-borda);
+  border-left: 5px solid var(--cor-primaria);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: #f8fafc;
+}
+
+.etapa strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.etapa span {
+  color: var(--cor-texto-suave);
+  font-size: 0.92rem;
+}
+
+.identificacao {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 6px 12px;
+  margin: 0;
+}
+
+.identificacao dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cor-texto-suave);
+  align-self: center;
+}
+
+.identificacao dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .identificacao {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .identificacao dd {
+    margin-bottom: 8px;
+  }
+}

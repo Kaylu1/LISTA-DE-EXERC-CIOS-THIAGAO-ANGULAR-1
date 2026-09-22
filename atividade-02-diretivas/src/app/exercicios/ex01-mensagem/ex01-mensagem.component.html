@@ -1,0 +1,23 @@
+<section class="enunciado">
+  <h2>Exercício 1 · Exibição de mensagem</h2>
+  <p>Propriedade booleana <code>mensagemVisivel</code> controlada por um único botão.</p>
+  <ul>
+    <li>Botão com o texto "Mostrar ou ocultar mensagem".</li>
+    <li>O valor da propriedade muda a cada clique.</li>
+    <li>A mensagem "Bem-vindo ao sistema" aparece somente quando a propriedade for verdadeira.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="alternarMensagem()">
+      Mostrar ou ocultar mensagem
+    </button>
+  </div>
+
+  <p class="resultado" *ngIf="mensagemVisivel">Bem-vindo ao sistema</p>
+
+  <p class="contador">
+    Valor atual de mensagemVisivel: <strong>{{ mensagemVisivel }}</strong>
+  </p>
+</section>

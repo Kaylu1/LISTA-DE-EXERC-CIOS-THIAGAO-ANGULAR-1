@@ -1,0 +1,26 @@
+<section class="enunciado">
+  <h2>Exercício 3 · Verificação de idade</h2>
+  <p>Propriedade numérica <code>idade</code> classificada por condições encadeadas.</p>
+  <ul>
+    <li>Criança: menor que 12 · Adolescente: 12 a 17 · Adulto: 18 a 59 · Idoso: 60 ou mais.</li>
+    <li>Botões para aumentar e diminuir, sem permitir valores negativos.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <p class="idade-atual">{{ idade }} <span>anos</span></p>
+
+  <p class="resultado" [ngClass]="classeFaixa">
+    <span *ngIf="idade < 12">Criança</span>
+    <span *ngIf="idade >= 12 && idade <= 17">Adolescente</span>
+    <span *ngIf="idade >= 18 && idade <= 59">Adulto</span>
+    <span *ngIf="idade >= 60">Idoso</span>
+  </p>
+
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="aumentarIdade()">Aumentar idade</button>
+    <button type="button" (click)="diminuirIdade()" [disabled]="idade === 0">Diminuir idade</button>
+  </div>
+
+  <p class="contador" *ngIf="idade === 0">A idade já está no valor mínimo permitido.</p>
+</section>

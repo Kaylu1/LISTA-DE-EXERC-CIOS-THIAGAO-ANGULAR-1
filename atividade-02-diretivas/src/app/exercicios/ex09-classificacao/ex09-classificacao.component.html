@@ -1,0 +1,33 @@
+<section class="enunciado">
+  <h2>Exercício 9 · Classificação dos produtos</h2>
+  <p>Reutiliza os produtos do exercício anterior e classifica o estoque.</p>
+  <ul>
+    <li>Quantidade zero: "Sem estoque" em vermelho.</li>
+    <li>Quantidade entre 1 e 5: "Estoque baixo" em amarelo.</li>
+    <li>Quantidade acima de 5: "Estoque disponível" em verde.</li>
+    <li>Use os botões para movimentar o estoque e ver a classificação mudar.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <ul class="lista">
+    <li *ngFor="let produto of produtos; let i = index" [ngClass]="definirClasseEstoque(produto)">
+      <div class="linha-produto">
+        <div>
+          <strong>{{ i + 1 }}. {{ produto.nome }}</strong>
+          <p class="contador">
+            {{ produto.preco | currency: 'BRL' }} · {{ produto.quantidade }} unidade(s)
+          </p>
+        </div>
+
+        <div class="acoes">
+          <span class="situacao">{{ classificarEstoque(produto) }}</span>
+          <button type="button" (click)="retirarUnidade(produto)" [disabled]="produto.quantidade === 0">
+            −
+          </button>
+          <button type="button" (click)="reporUnidade(produto)">+</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

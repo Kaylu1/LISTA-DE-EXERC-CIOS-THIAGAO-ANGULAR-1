@@ -1,0 +1,23 @@
+<section class="enunciado">
+  <h2>Exercício 5 · Lista de nomes</h2>
+  <p>Array com cinco nomes apresentado em uma lista HTML.</p>
+  <ul>
+    <li>Exibe a posição e o nome de cada pessoa, com a contagem começando em 1.</li>
+    <li>O primeiro registro recebe o texto "Primeiro da lista".</li>
+    <li>O último registro recebe o texto "Último da lista".</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <ul class="lista">
+    <li
+      *ngFor="let nome of nomes; let i = index; let primeiro = first; let ultimo = last"
+      class="item-nome"
+    >
+      <span class="posicao">{{ i + 1 }}</span>
+      <span class="nome">{{ nome }}</span>
+      <span class="etiqueta info" *ngIf="primeiro">Primeiro da lista</span>
+      <span class="etiqueta sucesso" *ngIf="ultimo">Último da lista</span>
+    </li>
+  </ul>
+</section>

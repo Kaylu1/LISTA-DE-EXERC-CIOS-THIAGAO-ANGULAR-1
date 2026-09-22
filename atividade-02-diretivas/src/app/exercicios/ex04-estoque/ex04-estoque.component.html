@@ -1,0 +1,24 @@
+<section class="enunciado">
+  <h2>Exercício 4 · Situação do estoque</h2>
+  <p>Movimentação simples de estoque com <code>nomeProduto</code> e <code>quantidadeEstoque</code>.</p>
+  <ul>
+    <li>"Produto disponível" quando a quantidade for maior que zero.</li>
+    <li>"Produto sem estoque" quando a quantidade for zero.</li>
+    <li>O botão de remoção fica desabilitado quando o estoque chega a zero.</li>
+  </ul>
+</section>
+
+<section class="cartao">
+  <h3>{{ nomeProduto }}</h3>
+  <p>Quantidade em estoque: <strong>{{ quantidadeEstoque }}</strong></p>
+
+  <p class="resultado" *ngIf="quantidadeEstoque > 0">Produto disponível</p>
+  <p class="aviso" *ngIf="quantidadeEstoque === 0">Produto sem estoque</p>
+
+  <div class="grupo-botoes">
+    <button type="button" class="primario" (click)="adicionarUnidade()">Adicionar uma unidade</button>
+    <button type="button" (click)="removerUnidade()" [disabled]="quantidadeEstoque === 0">
+      Remover uma unidade
+    </button>
+  </div>
+</section>

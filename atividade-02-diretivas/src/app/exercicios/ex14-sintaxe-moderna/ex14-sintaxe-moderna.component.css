@@ -1,0 +1,48 @@
+.situacao {
+  font-weight: 700;
+  font-size: 0.86rem;
+  margin-left: 8px;
+}
+
+.sem-estoque {
+  background: var(--cor-perigo-fundo);
+  border-color: #fca5a5;
+}
+
+.sem-estoque .situacao {
+  color: var(--cor-perigo);
+}
+
+.estoque-baixo {
+  background: var(--cor-alerta-fundo);
+  border-color: #fde68a;
+}
+
+.estoque-baixo .situacao {
+  color: var(--cor-alerta);
+}
+
+.estoque-disponivel {
+  background: var(--cor-sucesso-fundo);
+  border-color: #bbf7d0;
+}
+
+.estoque-disponivel .situacao {
+  color: var(--cor-sucesso);
+}
+
+.diferencas {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.diferencas li {
+  margin-bottom: 12px;
+}
+
+code {
+  background: #f1f5f9;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.9em;
+}

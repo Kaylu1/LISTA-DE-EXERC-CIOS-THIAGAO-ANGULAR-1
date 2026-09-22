@@ -1,0 +1,139 @@
+.painel-numeros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.numero {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.numero .valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.numero .rotulo {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.cabecalho-projeto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.titulo-projeto {
+  font-size: 1.02rem;
+}
+
+.informacoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.nota {
+  font-weight: 700;
+}
+
+.sem-nota {
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  font-style: italic;
+}
+
+.troca-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 320px;
+}
+
+.troca-status label {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.etiqueta-status {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.status-planejamento {
+  border-left: 6px solid #7c3aed;
+}
+
+.status-planejamento .etiqueta-status {
+  background: #ede9fe;
+  border-color: #ddd6fe;
+  color: #5b21b6;
+}
+
+.status-desenvolvimento {
+  border-left: 6px solid var(--cor-primaria);
+}
+
+.status-desenvolvimento .etiqueta-status {
+  background: #dbeafe;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
+.status-testes {
+  border-left: 6px solid var(--cor-alerta);
+}
+
+.status-testes .etiqueta-status {
+  background: var(--cor-alerta-fundo);
+  border-color: #fde68a;
+  color: var(--cor-alerta);
+}
+
+.status-concluido {
+  border-left: 6px solid var(--cor-sucesso);
+}
+
+.status-concluido .etiqueta-status {
+  background: var(--cor-sucesso-fundo);
+  border-color: #bbf7d0;
+  color: var(--cor-sucesso);
+}
+
+.nota-destaque {
+  background: #f0fdf4;
+  box-shadow: inset 0 0 0 1px #bbf7d0;
+}
+
+.nota-destaque .nota {
+  color: var(--cor-sucesso);
+}
+
+.nota-abaixo {
+  background: #fef2f2;
+  box-shadow: inset 0 0 0 1px #fecaca;
+}
+
+.nota-abaixo .nota {
+  color: var(--cor-perigo);
+}
